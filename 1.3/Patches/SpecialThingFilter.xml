@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+			<mods><li>XML Extensions</li></mods>
+			<match Class="PatchOperationSequence">
+				<operations>
+					<li Class="XmlExtensions.OptionalPatchExternal">
+						<ModSettingsClass>VarietyMattersDT.ModSettings_VMDT</ModSettingsClass>
+						<field>frozenMeals</field>
+						<caseTrue>
+							<Operation Class="PatchOperationAdd">
+								<xpath>Defs</xpath>
+								<value>
+									<SpecialThingFilterDef>
+										<defName>AllowFrozen</defName>
+										<label>allow frozen</label>
+										<description>Allow meals that have frozen</description>
+										<parentCategory>FoodMeals</parentCategory>
+										<allowedByDefault>true</allowedByDefault>
+										<saveKey>allowFrozen</saveKey>
+										<workerClass>VarietyMattersDT.SpecialThingFilterWorker_Frozen</workerClass>
+									</SpecialThingFilterDef>
+								</value>
+							</Operation>	
+						</caseTrue>
+					</li>	
+					<li Class="XmlExtensions.OptionalPatchExternal">
+						<ModSettingsClass>VarietyMattersDT.ModSettings_VMDT</ModSettingsClass>
+						<field>leftoverMeals</field>
+						<caseTrue>
+							<Operation Class="PatchOperationAdd">
+								<xpath>Defs</xpath>
+								<value>
+									<SpecialThingFilterDef>
+										<defName>AllowLeftovers</defName>
+										<label>allow leftovers</label>
+										<description>Allow leftover meals</description>
+										<parentCategory>FoodMeals</parentCategory>
+										<allowedByDefault>true</allowedByDefault>
+										<saveKey>allowLeftover</saveKey>
+										<workerClass>VarietyMattersDT.SpecialThingFilterWorker_Leftovers</workerClass>
+									</SpecialThingFilterDef>
+								</value>
+							</Operation>	
+						</caseTrue>
+					</li>
+				</operations>
+			</match>
+	</Operation>
+</Patch>
