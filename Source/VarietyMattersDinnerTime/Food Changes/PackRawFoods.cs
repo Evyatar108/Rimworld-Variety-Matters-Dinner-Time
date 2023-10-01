@@ -11,8 +11,8 @@ namespace VarietyMattersDT
         {
             if (ModSettings_VMDT.foodsWithoutTable)
             {
-                __result = food.def.IsNutritionGivingIngestible && food.def.EverHaulable && food.def.ingestible.preferability >= FoodPreferability.RawTasty && forPawn.WillEat(food, null, false);
-                return false;
+                __result = food.def.IsNutritionGivingIngestible && food.def.EverHaulable && food.def.ingestible.preferability >= FoodPreferability.RawTasty && forPawn.WillEat_NewTemp(food, careIfNotAcceptableForTitle: false);
+                return false; 
             }
             return true;
         }
